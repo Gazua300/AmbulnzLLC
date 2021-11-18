@@ -3,20 +3,20 @@ import { con } from '../data/connection'
 
 
 
-export const orderById = async(req:Request, res:Response):Promise<void>=>{
+export const pizzaById = async(req:Request, res:Response):Promise<void>=>{
   let statusCode = 400
   try{
 
-    const [order] = await con('case_fullstack_orders').where({
+    const [pizza] = await con('case_fullstack_pizza').where({
       id: req.params.id
     })
 
-    if(!order){
+    if(!pizza){
       statusCode = 404
       throw new Error('Dados inválidos ou pedido inexistente.')
     }
 
-    res.status(200).send(order)
+    res.status(200).send(pizza)
   }catch(error:any){
     res.status(statusCode).send(error.message || error.sqlMessage)
   }

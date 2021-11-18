@@ -24,6 +24,10 @@ GET http://localhost:3003/pizzas
 
 ---
 
+GET http://localhost:3003/pizzas/2fbe93dd-7686-4f78-b72d-70ec6f8460f5
+
+---
+
 POST http://localhost:3003/orders
 Content-Type: application/json
 
@@ -40,3 +44,15 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiN2ZkZGM4YTkt
 ---
 
 GET http://localhost:3003/orders/db1c6e8f-58e7-4e6a-9546-d01f9b91e9f9
+
+---
+
+POST http://localhost:3003/pizzas
+Content-Type: application/json
+
+{
+  "name": "Pepperoni",
+  "price": 25,
+  "ingredients": "Alho em pó, azeite, cebola picada, pimenta em pó, orégano e manjericão",
+  "photo": "https://pizzariadesucesso.com/wp-content/uploads/2018/05/pepperoni-pizza.jpg"
+}

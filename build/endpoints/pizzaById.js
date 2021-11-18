@@ -9,30 +9,23 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.insertPizza = void 0;
+exports.pizzaById = void 0;
 const connection_1 = require("../data/connection");
-const Authentication_1 = require("../services/Authentication");
-const insertPizza = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const pizzaById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     let statusCode = 400;
     try {
-        const { name, price, ingredients, photo } = req.body;
-        if (!name || !price || !ingredients || !photo) {
-            statusCode = 401;
-            throw new Error('Preencha os campos.');
-        }
-        const id = new Authentication_1.Authentication().generateId();
-        yield (0, connection_1.con)('case_fullstack_pizza').insert({
-            id,
-            name,
-            price,
-            ingredients,
-            photo
+        const [pizza] = yield (0, connection_1.con)('case_fullstack_pizza').where({
+            id: req.params.id
         });
-        res.status(200).send(`Pizza ${name} adicionada.`);
+        if (!pizza) {
+            statusCode = 404;
+            throw new Error('Dados inválidos ou pedido inexistente.');
+        }
+        res.status(200).send(pizza);
     }
     catch (error) {
         res.status(statusCode).send(error.message || error.sqlMessage);
     }
 });
-exports.insertPizza = insertPizza;
-//# sourceMappingURL=insertPizza.js.map
+exports.pizzaById = pizzaById;
+//# sourceMappingURL=pizzaById.js.map

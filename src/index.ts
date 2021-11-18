@@ -6,6 +6,8 @@ import { showPizzas } from './endpoints/showPizzas'
 import { createOrder } from './endpoints/createOrder'
 import { listOfOrders } from './endpoints/listOfOrders'
 import { orderById } from './endpoints/orderById'
+import { insertPizza } from './endpoints/insertPizza'
+import { pizzaById } from './endpoints/pizzaById'
 import { Authentication } from './services/Authentication'
 
 const app = express()
@@ -17,9 +19,11 @@ app.use(cors())
 app.post('/signup', signupADM)
 app.post('/login', loginADM)
 app.post('/orders', createOrder)
+app.post('/pizzas', insertPizza)
 app.get('/orders', listOfOrders)
 app.get('/orders/:id', orderById)
 app.get('/pizzas', showPizzas)
+app.get('/pizzas/:id', pizzaById)
 
 
 // const id = new Authentication().generateId()

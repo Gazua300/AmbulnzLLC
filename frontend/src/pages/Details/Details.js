@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { useContext, useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import Context from '../../global/Context'
 import axios from 'axios'
 import { url } from '../../constants/urls'
@@ -21,6 +21,15 @@ const Details = ()=>{
   const [qnt, setQnt] = useState('')
 
 
+  useEffect(()=>{
+    const token = localStorage.getItem('token')
+
+    if(token){
+      navigate('/adm')
+    }
+  }, [])
+
+
   const handleQnt = (e)=>{
     setQnt(e.target.value)
   }
@@ -32,11 +41,21 @@ const Details = ()=>{
       quantity: qnt
     }
 
-    axios.post(`${url}/orders`, body).then(res=>{
-      alert(res.data)
-    }).catch(err=>{
-      alert(err.response.data)
-    })
+    const decide = window.confirm(`
+      Pizza: ${detail.name}
+      Preço: ${detail.price}
+      Quantidade: ${qnt}
+      Total: ${qnt * detail.price}
+    `)
+
+    if(decide){
+      axios.post(`${url}/orders`, body).then(res=>{
+        alert(res.data)
+      }).catch(err=>{
+        alert(err.response.data)
+      })
+    }
+
   }
 
 //================================Render================================
@@ -45,6 +64,7 @@ const Details = ()=>{
           <Card key={detail.id}>
             <Title>{detail.name}</Title>
             <Photo src={detail.photo} alt=''/><p>
+            Valor: R$ {detail.price}.00<br/>
             Quantidade:&nbsp;
             <input type='number' min='0'
               value={qnt} onChange={handleQnt}/>

@@ -8,6 +8,7 @@ export const Card = styled.div`
   left: 33%;
   text-align: center;
   width: 30vw;
+  line-height: 30px;
   input{
     width: 40px;
   }

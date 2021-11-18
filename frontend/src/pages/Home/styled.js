@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 
 export const Container = styled.div`
-  box-shadow: 3px 3px 6px lightgray;
+  box-shadow: 3px 3px 6px black;
   border-radius: 10px;
   button{
     float: right;

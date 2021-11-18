@@ -1,12 +1,23 @@
 import { Card, Title, Photo, Container, Ingredients, IngTitle } from './styled'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import Context from '../../global/Context'
+import { useNavigate } from 'react-router-dom'
 
 
 
 const Home = ()=>{
+  const navigate = useNavigate()
   const { states, requests } = useContext(Context)
   const pizzas = states.pizzas
+
+
+  useEffect(()=>{
+    const token = localStorage.getItem('token')
+
+    if(token){
+      navigate('/adm')
+    }
+  }, [])
 
 
   return(

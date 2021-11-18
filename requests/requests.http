@@ -1,0 +1,42 @@
+POST http://localhost:3003/signup
+Content-Type: application/json
+
+{
+  "name": "Flamarion",
+  "email": "fran@gmail.com",
+  "password": "nova",
+  "passConfirm": "nova"
+}
+
+---
+
+POST http://localhost:3003/login
+Content-Type: application/json
+
+{
+  "email": "fran@gmail.com",
+  "password": "nova"
+}
+
+---
+
+GET http://localhost:3003/pizzas
+
+---
+
+POST http://localhost:3003/orders
+Content-Type: application/json
+
+{
+  "pizza": "queijo",
+  "quantity": 1
+}
+
+---
+
+GET http://localhost:3003/orders
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiN2ZkZGM4YTktOGU4Zi00ODc0LWI2MGMtYjkxNDNiMDgxNmJjIiwiaWF0IjoxNjM3MTg2MzU4LCJleHAiOjE2MzcyMjIzNTh9.sI1t5Vq2dEPw1l_-wTT3zWRgJ36qg4mj1RMooJPfNRI
+
+---
+
+GET http://localhost:3003/orders/db1c6e8f-58e7-4e6a-9546-d01f9b91e9f9

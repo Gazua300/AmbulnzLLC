@@ -26,19 +26,6 @@ app.get('/pizzas', showPizzas)
 app.get('/pizzas/:id', pizzaById)
 
 
-// const id = new Authentication().generateId()
-// console.log('id:', id)
-// const token = new Authentication().token(id)
-// console.log('token:', token)
-// const tokenData = new Authentication().tokenData(token)
-// console.log('tokenData:', tokenData)
-// const hash = new Authentication().hash('senha')
-// console.log('Senha:', hash)
-// const compare = new Authentication().compare('senha', hash)
-// console.log('Cripto senha:', compare)
-
-
-
 
 
 

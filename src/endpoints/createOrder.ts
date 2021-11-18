@@ -30,7 +30,8 @@ export const createOrder = async(req:Request, res:Response):Promise<void>=>{
       pizza,
       price: checkPizza.price,
       quantity,
-      total: checkPizza.price * quantity
+      total: checkPizza.price * quantity,
+      date: new Date()
     })
 
     res.status(200).send('Pedido realizado com sucesso!')

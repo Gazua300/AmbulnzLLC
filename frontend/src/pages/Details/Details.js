@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router'
 import { useContext, useState, useEffect } from 'react'
 import Context from '../../global/Context'
 import axios from 'axios'

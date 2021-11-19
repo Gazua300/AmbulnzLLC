@@ -2,7 +2,39 @@ import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { url } from '../../constants/urls'
 import axios from 'axios'
+import styled from 'styled-components'
 
+
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  form{
+    margin-top: 10vh;
+    margin-bottom: 10px;
+  }
+  fieldset{
+    width: 20vw;
+    padding: 20px;
+    box-shadow: 3px 3px 6px black;
+  }
+  legend{
+    font-size: 1.2rem;
+  }
+  input{
+    margin-bottom: 15px;
+    background: transparent;
+  }
+  button{
+    background-color: goldenrod;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+`
+
+
+
+//========================================Component=============================
 const Login = ()=>{
   const navigate = useNavigate()
   const [form, setForm] = useState({
@@ -42,18 +74,24 @@ const Login = ()=>{
 
 //=======================================Render=========================================
   return(
-    <div>
+    <Container>
       <form onSubmit={login}>
-        <input type='email' name='email' value={form.email} onChange={onChange}
-          placeholder='exemplo@email.com' required/>
-        <input type='password' name='password' value={form.password} onChange={onChange}
-          placeholder='Sua senha' required/>
-        <button>Entrar</button>
+        <fieldset>
+          <legend>Login</legend>
+          <input type='email' name='email' value={form.email} onChange={onChange}
+            placeholder='exemplo@email.com' required/>
+          <input type='password' name='password' value={form.password} onChange={onChange}
+            placeholder='Sua senha' required/>
+          <div>
+            <button>Entrar</button>&nbsp;&nbsp;&nbsp;
+            <button onClick={()=> navigate('/')}>
+              Voltar
+            </button>
+          </div>
+        </fieldset>
       </form>
-      <button onClick={()=> navigate('/')}>
-        Voltar
-      </button>
-    </div>
+
+    </Container>
   )
 }
 export default Login

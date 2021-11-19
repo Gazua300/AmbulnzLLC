@@ -33,7 +33,8 @@ const createOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
             pizza,
             price: checkPizza.price,
             quantity,
-            total: checkPizza.price * quantity
+            total: checkPizza.price * quantity,
+            date: new Date()
         });
         res.status(200).send('Pedido realizado com sucesso!');
     }

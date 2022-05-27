@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { url } from '../../constants/urls'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 
@@ -23,6 +23,14 @@ const Card = styled.div`
   box-shadow: 3px 3px 6px black;
   margin: 10px;
 `
+const Edit = styled.button`
+  position: relative;
+  top: -25px;
+`
+const Delete = styled.button`
+  position: relative;
+  bottom: -25px;
+`
 const Msg = styled.div`
   text-align: center;
   font-size: 1.5rem;
@@ -34,8 +42,6 @@ const Adm = ()=>{
   const navigate = useNavigate()
   const token = localStorage.getItem('token')
   const [orders, setOrders] = useState([])
-
-  console.log(orders)
 
 
   useEffect(()=>{
@@ -68,6 +74,20 @@ const Adm = ()=>{
     })
   }
 
+  const deleteOrder = (id)=>{
+    const decide = window.confirm('Tem certeza que deseja excluir o pedido?')
+    
+    if(decide){
+      axios.delete(`http://localhost:3003/orders/${id}`).then(res=>{
+        alert(res.data)
+        window.location.reload()
+      }).catch(err=>{
+        alert(err.response.data)
+      })
+    }
+
+  }
+
 //=======================================Render==================================
   return(
     <Container>
@@ -84,6 +104,8 @@ const Adm = ()=>{
               <b>Quantidade: </b>{order.quantity}<br/>
               <b>Total: </b>{order.total}<br/>
               <b>Data: </b>{order.date}
+              <Edit>Editar</Edit>              
+              <Delete onClick={()=> deleteOrder(order.id)}>Exluir</Delete>
             </Card>
           )
         }) : <Msg>Nenhum pedido feito ainda</Msg>}

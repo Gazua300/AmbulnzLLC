@@ -8,7 +8,9 @@ import { listOfOrders } from './endpoints/listOfOrders'
 import { orderById } from './endpoints/orderById'
 import { insertPizza } from './endpoints/insertPizza'
 import { pizzaById } from './endpoints/pizzaById'
-import { Authentication } from './services/Authentication'
+import { deleteOrder } from './endpoints/deleteOrder'
+import { editOrder } from './endpoints/editOrder'
+
 
 const app = express()
 app.use(express.json())
@@ -20,6 +22,8 @@ app.post('/signup', signupADM)
 app.post('/login', loginADM)
 app.post('/orders', createOrder)
 app.post('/pizzas', insertPizza)
+app.put('/orders/:id', editOrder)
+app.delete('/orders/:id', deleteOrder)
 app.get('/orders', listOfOrders)
 app.get('/orders/:id', orderById)
 app.get('/pizzas', showPizzas)

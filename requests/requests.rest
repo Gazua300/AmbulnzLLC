@@ -43,7 +43,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiN2ZkZGM4YTkt
 
 ###
 
-GET http://localhost:3003/orders/db1c6e8f-58e7-4e6a-9546-d01f9b91e9f9
+GET http://localhost:3003/orders/bc38684f-2463-4361-baaf-3321116b0800
 
 ###
 
@@ -55,4 +55,20 @@ Content-Type: application/json
   "price": 25,
   "ingredients": "Goiabada em pedaços, mussarela ralada, canela-da-china em pó",
   "photo": "https://www.pizzatec.com.br/assets/uploads/images/2018/12/pizza-romeu-e-julieta.jpg"
+}
+
+###
+
+DELETE http://localhost:3003/orders/bc38684f-2463-4361-baaf-3321116b0800
+
+###
+
+
+PUT http://localhost:3003/orders/620cba0f-9475-4efd-9b21-166c4a3ba13d
+Content-Type: application/json
+
+{
+  "pizza": "Bolonhesa",
+  "price": 30,
+  "quantity": 3
 }

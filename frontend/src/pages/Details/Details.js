@@ -66,7 +66,7 @@ const Details = ()=>{
             <Photo src={detail.photo} alt=''/><p>
             Valor: R$ {detail.price}.00<br/>
             Quantidade:&nbsp;
-            <input type='number' min='0'
+            <input type='number' min='1'
               value={qnt} onChange={handleQnt}/>
             <BtnContainer>
               <button onClick={()=> navigate('/')}>Voltar</button>

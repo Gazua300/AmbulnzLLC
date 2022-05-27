@@ -5,7 +5,8 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   body{
-    background-color: lightgray;
+    background-image: linear-gradient(to right, black, rgba(0, 0, 0, 0.8));
+    color: whitesmoke;
   }
 `
 

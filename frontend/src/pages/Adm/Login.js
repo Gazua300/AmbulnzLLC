@@ -14,16 +14,21 @@ const Container = styled.div`
     margin-bottom: 10px;
   }
   fieldset{
-    width: 20vw;
+    width: 27vw;
+    text-align: center;
     padding: 20px;
     box-shadow: 3px 3px 6px black;
   }
   legend{
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
   input{
     margin-bottom: 15px;
     background: transparent;
+    width: 200px;
+    height: 30px;
+    font-size: 13.5pt;
+    color: whitesmoke;
   }
   button{
     background-color: goldenrod;

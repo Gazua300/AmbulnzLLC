@@ -10,6 +10,7 @@ const GlobalState = (props)=>{
   const navigate = useNavigate()
   const [pizzas, setPizzas] = useState([])
   const [detail, setDetail] = useState({})
+  const [edit, setEdit] = useState({})
 
 
   useEffect(()=>{
@@ -32,7 +33,15 @@ const GlobalState = (props)=>{
     })
   }
 
-  const states = { pizzas, detail }
+  const editOrder = (id)=>{
+    axios.get(`${url}/pizzas/${id}`).then(res=>{
+      setEdit(res.data)
+    }).catch(err=>{
+      alert(err.response.message)
+    })
+  }
+
+  const states = { pizzas, detail, edit }
   const setters = {}
   const requests = { pizzaDetail }
 

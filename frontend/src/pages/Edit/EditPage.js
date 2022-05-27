@@ -2,30 +2,7 @@ import { useContext, useState } from 'react'
 import Context from '../../global/Context'
 import { url } from '../../constants/urls'
 import axios from 'axios'
-import styled from 'styled-components'
-
-
-const Container = styled.div`
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    fieldset{
-        width: 30vw;
-        padding: 30px;
-    }
-    legend{
-        text-align: center;
-    }    
-    select{
-        margin-bottom: 10px;
-    }
-    
-    input{
-        margin-top: 10px;
-        margin-bottom: 10px;
-        width: 30px;
-    }
-`
+import { Container } from './styled'
 
 
 const EditPage = ()=>{
@@ -91,6 +68,7 @@ const EditPage = ()=>{
                         Object.keys(flavor).length !== 0 ? (flavor.price * qnt)
                         : 0
                     }
+                    <br/><br/>
                     <button>Salvar alterações</button>
                 </fieldset>
             </form>

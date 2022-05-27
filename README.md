@@ -1,7 +1,8 @@
 # AmbulnzLLC
+## Projeto fullstack
 
-Aplicativo de menu para pizzarias, onde se apresentam os sabares e os ingredientes. Cliquando em cada sabor o usuário é redirecionado à página de pedidos.
+Aplicativo de menu para pizzarias, onde se apresentam os sabares e os ingredientes. Usuário pode realizar pedidos de cada sabor. O aplicativo também conta com uma página de acesso administrativo, que já está com login e senha, pois se trata de uma página fictícia para demonstração. Nesta página, com acesso para administradores, é possível visualizar, editar e excluir os pedidos já realizados.
 
->Link para o deploy: https://lovely-wood.surge.sh/
+>Link para o deploy: https://frontendeploys.herokuapp.com/
 
 >Link da API: https://documenter.getpostman.com/view/11884929/UVCCfPYK

@@ -64,7 +64,7 @@ const Details = ()=>{
           <Card key={detail.id}>
             <Title>{detail.name}</Title>
             <Photo src={detail.photo} alt=''/><p>
-            Valor: R$ {detail.price}.00<br/>
+            Preço: R$ {detail.price}.00<br/>
             Quantidade:&nbsp;
             <input type='number' min='1'
               value={qnt} onChange={handleQnt}/>

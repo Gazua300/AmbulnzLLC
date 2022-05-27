@@ -26,23 +26,16 @@ const GlobalState = (props)=>{
 
   const pizzaDetail = (id)=>{
     axios.get(`${url}/pizzas/${id}`).then(res=>{
-      setDetail(res.data)
+      setDetail(res.data)      
       navigate('/details')
     }).catch(err=>{
       alert(err.response.data.message)
     })
   }
 
-  const editOrder = (id)=>{
-    axios.get(`${url}/pizzas/${id}`).then(res=>{
-      setEdit(res.data)
-    }).catch(err=>{
-      alert(err.response.message)
-    })
-  }
-
+  
   const states = { pizzas, detail, edit }
-  const setters = {}
+  const setters = { setEdit }
   const requests = { pizzaDetail }
 
   return<Context.Provider value={{ states, setters, requests }}>

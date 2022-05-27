@@ -16,6 +16,7 @@ const createOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     let statusCode = 400;
     try {
         const { pizza, quantity } = req.body;
+        const currentTime = new Date();
         if (!pizza || !quantity) {
             statusCode = 401;
             throw new Error('Dados inválidos, por favor verifique os campos e tente novamente.');
@@ -34,7 +35,7 @@ const createOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
             price: checkPizza.price,
             quantity,
             total: checkPizza.price * quantity,
-            date: new Date()
+            date: currentTime.toLocaleDateString()
         });
         res.status(200).send('Pedido realizado com sucesso!');
     }

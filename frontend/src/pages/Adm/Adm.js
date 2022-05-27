@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import Context from '../../global/Context'
 import axios from 'axios'
 import { url } from '../../constants/urls'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 
@@ -39,6 +40,7 @@ const Msg = styled.div`
 
 //============================================Component================================
 const Adm = ()=>{
+  const { setters } = useContext(Context)
   const navigate = useNavigate()
   const token = localStorage.getItem('token')
   const [orders, setOrders] = useState([])
@@ -74,12 +76,20 @@ const Adm = ()=>{
     })
   }
 
+  const editOrder = (id)=>{
+    axios.get(`${url}/orders/${id}`).then(res=>{
+      setters.setEdit(res.data)      
+      navigate('/edit')
+    }).catch(err=>{
+      alert(err.response.data.message)
+    })
+  }
+  
   const deleteOrder = (id)=>{
     const decide = window.confirm('Tem certeza que deseja excluir o pedido?')
     
     if(decide){
-      axios.delete(`http://localhost:3003/orders/${id}`).then(res=>{
-        alert(res.data)
+      axios.delete(`${url}/orders/${id}`).then(res=>{
         window.location.reload()
       }).catch(err=>{
         alert(err.response.data)
@@ -100,11 +110,11 @@ const Adm = ()=>{
           return(
             <Card key={order.id}>
               <b>Sabor: </b>{order.pizza}<br/>
-              <b>Preço: </b>{order.price}<br/>
+              <b>Preço: R$ </b>{order.price}.00<br/>
               <b>Quantidade: </b>{order.quantity}<br/>
-              <b>Total: </b>{order.total}<br/>
+              <b>Total: R$ </b>{order.total}.00<br/>
               <b>Data: </b>{order.date}
-              <Edit>Editar</Edit>              
+              <Edit onClick={()=> editOrder(order.id)}>Editar</Edit>              
               <Delete onClick={()=> deleteOrder(order.id)}>Exluir</Delete>
             </Card>
           )

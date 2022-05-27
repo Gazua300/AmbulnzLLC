@@ -24,7 +24,7 @@ GET http://localhost:3003/pizzas
 
 ###
 
-GET http://localhost:3003/pizzas/2fbe93dd-7686-4f78-b72d-70ec6f8460f5
+GET http://localhost:3003/pizzas/620cba0f-9475-4efd-9b21-166c4a3ba13d
 
 ###
 
@@ -71,4 +71,13 @@ Content-Type: application/json
   "pizza": "Bolonhesa",
   "price": 30,
   "quantity": 3
+}
+
+###
+
+POST http://localhost:3003/pizza
+Content-Type: application/json
+
+{
+  "name": "Romeu e Julieta"  
 }

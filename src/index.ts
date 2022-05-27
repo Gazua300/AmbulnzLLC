@@ -1,5 +1,8 @@
 import express from 'express'
 import cors from 'cors'
+
+import { con } from './data/connection'
+
 import { signupADM } from './endpoints/signupADM'
 import { loginADM } from './endpoints/loginADM'
 import { showPizzas } from './endpoints/showPizzas'
@@ -10,6 +13,7 @@ import { insertPizza } from './endpoints/insertPizza'
 import { pizzaById } from './endpoints/pizzaById'
 import { deleteOrder } from './endpoints/deleteOrder'
 import { editOrder } from './endpoints/editOrder'
+import { pizzaByName } from './endpoints/pizzaByName'
 
 
 const app = express()
@@ -22,6 +26,7 @@ app.post('/signup', signupADM)
 app.post('/login', loginADM)
 app.post('/orders', createOrder)
 app.post('/pizzas', insertPizza)
+app.post('/pizza', pizzaByName)
 app.put('/orders/:id', editOrder)
 app.delete('/orders/:id', deleteOrder)
 app.get('/orders', listOfOrders)
@@ -30,7 +35,9 @@ app.get('/pizzas', showPizzas)
 app.get('/pizzas/:id', pizzaById)
 
 
-
+// app.put('/test',async(req, res)=>{
+//   await con('case_fullstack_pizzas')
+// })
 
 
 app.listen(process.env.PORT || 3003, ()=>{

@@ -8,6 +8,7 @@ export const createOrder = async(req:Request, res:Response):Promise<void>=>{
   try{
 
     const { pizza, quantity } = req.body
+    const currentTime = new Date()
 
     if(!pizza || !quantity){
       statusCode = 401
@@ -31,7 +32,7 @@ export const createOrder = async(req:Request, res:Response):Promise<void>=>{
       price: checkPizza.price,
       quantity,
       total: checkPizza.price * quantity,
-      date: new Date()
+      date: currentTime.toLocaleDateString()
     })
 
     res.status(200).send('Pedido realizado com sucesso!')

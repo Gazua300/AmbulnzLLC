@@ -69,10 +69,10 @@ const Details = ()=>{
             <input type='number' min='1'
               value={qnt} onChange={handleQnt}/>
             <BtnContainer>
-              <button onClick={()=> navigate('/')}>Voltar</button>
               <button onClick={order}>
                 Confirmar Pedido
               </button>
+              <button onClick={()=> navigate('/')}>Voltar</button>
             </BtnContainer>
             </p>
           </Card>

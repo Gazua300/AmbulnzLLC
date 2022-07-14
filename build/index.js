@@ -35,7 +35,7 @@ app.get('/orders', listOfOrders_1.listOfOrders);
 app.get('/orders/:id', orderById_1.orderById);
 app.get('/pizzas', showPizzas_1.showPizzas);
 app.get('/pizzas/:id', pizzaById_1.pizzaById);
-app.get('/user/:id', userById_1.userById);
+app.get('/user', userById_1.userById);
 app.listen(process.env.PORT || 3003, () => {
     console.log('Server running at 3003');
 });

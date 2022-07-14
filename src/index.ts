@@ -37,7 +37,7 @@ app.get('/orders', listOfOrders)
 app.get('/orders/:id', orderById)
 app.get('/pizzas', showPizzas)
 app.get('/pizzas/:id', pizzaById)
-app.get('/user/:id', userById)
+app.get('/user', userById)
 
 
 

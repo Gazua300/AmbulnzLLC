@@ -34,12 +34,13 @@ POST http://localhost:3003/user/login
 Content-Type: application/json
 
 {
-  "phone": "71988500067",
+  "phone": "71984707037",
   "password": "senha"
 }
 
 ###
-GET http://localhost:3003/user/dbddf05c-9751-4c5a-a00c-65fdce6a6ec4
+GET http://localhost:3003/user
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiZGJkZGYwNWMtOTc1MS00YzVhLWEwMGMtNjVmZGNlNmE2ZWM0IiwiaWF0IjoxNjU3ODI4NzQ4LCJleHAiOjE2NTc4NjQ3NDh9.d_-PDSCbyugHCp5CV9tdBdeORt6JqbZp4AxjWk5KGP8 
 
 ###
 

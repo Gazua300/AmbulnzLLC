@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && node ./build/index.js",
-    "dev": "tsnd --transpile-only --ignore-watch node_modules ./src/index.ts",
-    "migrations": "tsnd --transpile-only --ignore-watch node_modules ./src/data/migrations.ts"
+    "start": "tsc && node ./build/index.js"
   },
   "keywords": [],
   "author": "",

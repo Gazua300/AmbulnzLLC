@@ -1,10 +1,12 @@
-import express from 'express'
+import express, { application } from 'express'
 import cors from 'cors'
 
-import { con } from './data/connection'
 
 import { signupADM } from './endpoints/signupADM'
 import { loginADM } from './endpoints/loginADM'
+import { signup } from './endpoints/signup'
+import { login } from './endpoints/login'
+import { userById } from './endpoints/userById'
 import { showPizzas } from './endpoints/showPizzas'
 import { createOrder } from './endpoints/createOrder'
 import { listOfOrders } from './endpoints/listOfOrders'
@@ -24,6 +26,8 @@ app.use(cors())
 
 app.post('/signup', signupADM)
 app.post('/login', loginADM)
+app.post('/user/signup', signup)
+app.post('/user/login', login)
 app.post('/orders', createOrder)
 app.post('/pizzas', insertPizza)
 app.post('/pizza', pizzaByName)
@@ -33,11 +37,9 @@ app.get('/orders', listOfOrders)
 app.get('/orders/:id', orderById)
 app.get('/pizzas', showPizzas)
 app.get('/pizzas/:id', pizzaById)
+app.get('/user/:id', userById)
 
 
-// app.put('/test',async(req, res)=>{
-//   await con('case_fullstack_pizzas')
-// })
 
 
 app.listen(process.env.PORT || 3003, ()=>{

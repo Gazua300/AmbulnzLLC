@@ -2,10 +2,10 @@ POST http://localhost:3003/signup
 Content-Type: application/json
 
 {
-  "name": "Flamarion",
-  "email": "fran@gmail.com",
-  "password": "nova",
-  "passConfirm": "nova"
+  "name": "Convidado",
+  "email": "teste@email.com",
+  "password": "senha",
+  "passConfirm": "senha"
 }
 
 ###
@@ -14,8 +14,8 @@ POST http://localhost:3003/login
 Content-Type: application/json
 
 {
-  "email": "fran@gmail.com",
-  "password": "nova"
+  "email": "teste@email.com",
+  "password": "senha"
 }
 
 ###

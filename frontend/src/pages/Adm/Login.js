@@ -38,8 +38,8 @@ const Container = styled.div`
 const Login = ()=>{
   const navigate = useNavigate()
   const [form, setForm] = useState({
-    email:'',
-    password:''
+    email:'teste@email.com',
+    password:'senha'
   })
 
 
@@ -79,9 +79,9 @@ const Login = ()=>{
         <fieldset>
           <legend>Login</legend>
           <input type='email' name='email' value={form.email} onChange={onChange}
-            placeholder='exemplo@email.com' required/>
+            placeholder='teste@gmail.com' required/>
           <input type='password' name='password' value={form.password} onChange={onChange}
-            placeholder='Sua senha' required/>
+            placeholder='senha' required/>
           <div>
             <button>Entrar</button>&nbsp;&nbsp;&nbsp;
             <button onClick={()=> navigate('/')}>

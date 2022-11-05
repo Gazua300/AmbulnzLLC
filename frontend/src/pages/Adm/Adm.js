@@ -23,6 +23,10 @@ const Card = styled.div`
   box-shadow: 3px 3px 6px black;
   margin: 10px;
 `
+const Msg = styled.div`
+  text-align: center;
+  font-size: 1.5rem;
+`
 
 
 //============================================Component================================
@@ -30,6 +34,8 @@ const Adm = ()=>{
   const navigate = useNavigate()
   const token = localStorage.getItem('token')
   const [orders, setOrders] = useState([])
+
+  console.log(orders)
 
 
   useEffect(()=>{
@@ -70,7 +76,7 @@ const Adm = ()=>{
         Deslogar
       </button>
       <div>
-        {orders && orders.map(order=>{
+        {orders.length !== 0 ? orders.map(order=>{          
           return(
             <Card key={order.id}>
               <b>Sabor: </b>{order.pizza}<br/>
@@ -80,7 +86,7 @@ const Adm = ()=>{
               <b>Data: </b>{order.date}
             </Card>
           )
-        })}
+        }) : <Msg>Nenhum pedido feito ainda</Msg>}
       </div>
     </Container>
   )
